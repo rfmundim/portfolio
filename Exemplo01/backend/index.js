@@ -87,12 +87,12 @@ app.get("/clientes/:id", (request, response) => {
 })
 
 app.get("/clientes", (request, response) => {
-    response.json(db.selectClientes())
-    return response.status(200).send({ id: 1, erro: "Sucesso" })
+    return response.json(db.selectClientes())
 })
+  
 
 app.get("/", (request, response, next) => {
-    return response.status(200).send({ id: 1, erro: "Sucesso" })
+    return response.status(200).send({ id: 1, mensagem: "Sucesso" })
 })
 
 app.listen(process.env.PORT, () => {
