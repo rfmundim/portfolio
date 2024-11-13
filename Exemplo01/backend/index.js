@@ -13,7 +13,7 @@ app.delete("/clientes/:id", (request, response) => {
 
     try {
         if (id === 999)
-           id = parseInt(id) 
+          id = parseInt(id) 
 
         if (!db.selectCliente(id))
           return response.status(400).send({ id: 456, erro: "Cliente não existe" })
@@ -78,19 +78,27 @@ app.post("/clientes", (request, response) => {
         } catch (err) {
           return response.status(500).send({ id: 999, mensagem: "Ocorreu um erro ao cadastrar o cliente", erro: err.message });
         }
- })
+})
 
-app.get("/clientes/:id", (request, response) => {
+ app.get("/clientes/:id", (request, response) => {
     const id = parseInt(request.params.id)
-    response.json(db.selectCliente(id))
-    response.sendStatus(200)
+    try {
+        return response.json(db.selectCliente(id))
+        } catch (err) {
+          return response.status(500).send({ id: 999, mensagem: "Ocorreu um erro ao buscar o cliente", erro: err.message });
+        }
+ 
+})
+
+app.get("/clientes/buscaPorNome/:nome", (request, response) => {
+  const nome = request.params.nome
+  return response.json(db.selectClienteByName(nome))
 })
 
 app.get("/clientes", (request, response) => {
     return response.json(db.selectClientes())
 })
   
-
 app.get("/", (request, response, next) => {
     return response.status(200).send({ id: 1, mensagem: "Sucesso" })
 })
