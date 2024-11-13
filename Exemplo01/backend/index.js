@@ -30,7 +30,7 @@ app.delete("/clientes/:id", (request, response) => {
 app.patch("/clientes/:id", (request, response) => {
     const idParam = parseInt(request.params.id)
     const cliente = request.body
-    const { id, nome } = cliente
+    const { id, nome, tipo, documento, contato, email } = cliente
 
     try {
         if (parseInt(id) === 999)
@@ -44,6 +44,9 @@ app.patch("/clientes/:id", (request, response) => {
 
         if (nome.length < 1)
           return response.status(400).send({ id: 457, erro: "Nome do cliente esta vazio" })
+
+        if (documento.length < 1)
+          return response.status(400).send({ id: 458, erro: "Documento do cliente esta vazio" })
        
         db.updateCliente(idParam, cliente)
         
@@ -56,7 +59,7 @@ app.patch("/clientes/:id", (request, response) => {
 
 app.post("/clientes", (request, response) => {
     const cliente = request.body
-    const { id, nome } = cliente
+    const { id, nome, tipo, documento, contato, email } = cliente
 
     try {
         if (parseInt(id) === 999)
@@ -70,6 +73,9 @@ app.post("/clientes", (request, response) => {
 
         if (nome.length < 1)
           return response.status(400).send({ id: 457, erro: "Nome do cliente esta vazio" })
+
+        if (documento.length < 1)
+          return response.status(400).send({ id: 458, erro: "Documento do cliente esta vazio" })
        
         db.insertCliente(cliente)
         
@@ -90,9 +96,14 @@ app.post("/clientes", (request, response) => {
  
 })
 
-app.get("/clientes/buscaPorNome/:nome", (request, response) => {
+app.get("/clientes/nome/:nome", (request, response) => {
   const nome = request.params.nome
   return response.json(db.selectClienteByName(nome))
+})
+
+app.get("/clientes/documento/:documento", (request, response) => {
+  const documento = request.params.documento
+  return response.json(db.selectClienteByDocument(documento))
 })
 
 app.get("/clientes", (request, response) => {
