@@ -10,17 +10,25 @@ app.use(express.json())
 
 app.delete("/clientes/:id", (request, response) => {
     const id = parseInt(request.params.id)
+    const authorization = request.headers.authorization
 
     try {
+
+        if (!authorization) {
+           return response.status(403).send({id: 455, erro: "Credencial não informada" });
+        }
+
+        if (authorization !== "STR8976B1@GT") {
+          return response.status(403).send({id: 455, erro: "Não autorizado"});
+        }
+
         if (id === 999)
           id = parseInt(id) 
 
         if (!db.selectCliente(id))
           return response.status(400).send({ id: 456, erro: "Cliente não existe" })
-
-        db.deleteCliente(id)
-        
-        return response.status(204).send({ id: 1, mensagem: "Cliente deletado com sucesso" })     
+          db.deleteCliente(id)
+          return response.status(204).send({ id: 1, mensagem: "Cliente deletado com sucesso" })     
            
         } catch (err) {
           return response.status(500).send({ id: 999, mensagem: "Ocorreu um erro ao deletar o cliente", erro: err.message });
