@@ -18,7 +18,7 @@ app.delete("/clientes/:id", (request, response) => {
            return response.status(403).send({id: 455, erro: "Credencial não informada" });
         }
 
-        if (authorization !== "STR8976B1@GT") {
+        if (authorization !== process.env.TOKEN) {
           return response.status(403).send({id: 455, erro: "Não autorizado"});
         }
 
