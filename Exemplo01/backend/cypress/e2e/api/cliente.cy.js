@@ -21,7 +21,7 @@ describe('Validação API de cliente', () => {
         email: "omelete_kendmar@emailtopzeira.com"
     }
 
-    const clienteSemNomeo = {
+    const clienteSemNome = {
         id: 7,
         nome: "",
         tipo: "F",
@@ -104,7 +104,7 @@ describe('Validação API de cliente', () => {
         cy.request({
             method: 'POST',
             url: '/clientes',
-            body: clienteSemNomeo,
+            body: clienteSemNome,
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -284,5 +284,5 @@ describe('Validação API de cliente', () => {
             expect(response.body.erro).to.equal('Não autorizado')
         }) 
     })
-   
+ 
 })

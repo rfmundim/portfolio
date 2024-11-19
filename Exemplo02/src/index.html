@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./style.css"  />
+
+  <title>Nova Conta - Teste Cypress</title>
+</head>
+<body>
+
+  <div class="container">
+    <section class="header">
+      <h2>Nova conta</h2>
+    </section>
+
+    <form id="form" class="form">
+      <div class="form-content">
+        <label for="name">Nome</label>
+        <input
+          type="text"
+          id="name"
+          data-test="name"
+          placeholder="Digite seu nome..."
+        />
+        <a data-test="ms-name">Aqui vai a mensagem de erro....</a>
+      </div>
+
+      <div class="form-content">
+        <label for="username">Nome de usuário</label>
+        <input
+          type="text"
+          id="username"
+          data-test="userName"
+          placeholder="Digite nome de usuário..."
+        />
+        <a data-test="ms-username">Aqui vai a mensagem de erro....</a>
+      </div>
+
+      <div class="form-content">
+        <label for="email">E-mail</label>
+        <input
+          type="text"
+          id="email"
+          data-test="email"
+          placeholder="Digite o seu e-mail..."
+        />
+        <a data-test="ms-email">Aqui vai a mensagem de erro....</a>
+      </div>
+
+      <div class="form-content">
+        <label for="password">Senha</label>
+        <input
+          type="password"
+          id="password"
+          data-test="password"
+          placeholder="Digite sua senha..."
+        />
+        <a data-test="ms-password">Aqui vai a mensagem de erro....</a>
+      </div>
+
+      <div class="form-content">
+        <label for="password-confirmation">Confirmação de senha</label>
+        <input
+          type="password"
+          id="password-confirmation"
+          data-test="password-confirmation"
+          placeholder="Digite sua senha novamente..."
+        />
+        <a data-test="ms-password-confirmation">Aqui vai a mensagem de erro....</a>
+      </div>
+
+      <div class="form-content">
+        <input
+          type="checkbox"
+          id="seletores"
+          value="seletor"
+          data-test="seletores"
+        />
+        <label for="seletores">Gostaria de receber novidades?</label>
+      </div>
+
+      <button type="submit" data-test="buttonSubmit">Cadastrar</button>
+
+    </form>
+
+  </div>
+  
+
+  <script src="./script.js"></script>
+</body>
+</html>

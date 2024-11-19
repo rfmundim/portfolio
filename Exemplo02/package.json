@@ -1,0 +1,18 @@
+{
+  "name": "exemplo-cypress-02",
+  "version": "1.0.0",
+  "description": "Teste de tela de cadastro html",
+  "main": "src/index.html",
+  "scripts": {
+    "cy:open": "cypress open",
+    "cy:open:mobile": "cypress open --config viewportWidth=410 viewportHeight=860",
+    "test": "cypress run",
+    "test:mobile": "cypress run --config viewportWidth=410 viewportHeight=860"
+  },
+  "author": "Rafael Mundim",
+  "license": "MIT",
+  "devDependencies": {
+    "@faker-js/faker": "^9.2.0",
+    "cypress": "^13.15.2"
+  }
+}
