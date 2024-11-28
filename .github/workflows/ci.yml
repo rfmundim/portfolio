@@ -13,8 +13,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-          with:
-            path: Exemplo03
+        with:
+          sparse-checkout: Exemplo03
       - name: Run cadastro de funcionario
         uses: cypress-io/github-action@v5
         with:
