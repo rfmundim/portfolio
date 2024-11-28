@@ -20,3 +20,5 @@ Apresento um exemplo de testes de cadastro de funcionário (Cadastro simples em 
   -saveLocalStorage e restoreLocalStorage da lib cypress-localstorage-commands  
   -Validação do conteúdo da tabela HTML  
   -GitAction para rodar o teste  
+
+Crédito exemplo cadastro: (WilliamDosSantos) -> https://github.com/WilliamDosSantos/CRUD-JavaScript  
