@@ -1,0 +1,25 @@
+name: ci-cadastro
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  pull_request:
+
+jobs:
+  eslint:
+    runs-on: ubuntu-22.04
+    steps:
+    - uses: actions/checkout@v3
+    - name: Install modules
+      run: npm install
+  cypress-tests-desktop:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Run cadastro de funcionario
+        uses: cypress-io/github-action@v5
+        with:
+          command: npm cy:open 
