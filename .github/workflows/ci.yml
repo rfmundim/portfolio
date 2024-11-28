@@ -18,4 +18,4 @@ jobs:
       - name: Run cadastro de funcionario
         uses: cypress-io/github-action@v5
         with:
-          command: npm cy:test:ex03
+          command: npm run cy:test:ex03
