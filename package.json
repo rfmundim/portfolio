@@ -1,0 +1,14 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "cy:open:ex03": "cd Exemplo03 && npm run cy:open",
+    "cy:test:ex03": "cd Exemplo03 && npm run cy:test"
+
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
